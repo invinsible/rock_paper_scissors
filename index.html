@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>    
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>  
+    <section class="game">
+        <div class="score">
+            <div class="score__player">
+                <h2>Player</h2>
+                <p>0</p>
+            </div>
+            <div class="score__computer">
+                <h2>Computer</h2>
+                <p>0</p>
+            </div>
+        </div>
+
+        <div class="intro">
+            <h1>Rock Paper and Scissors</h1>
+            <button>Let's play</button>
+        </div>
+
+        <div class="match fadeOut">
+            <h2 class="winner">Choose an option</h2>
+            <div class="hands">
+                <img src="img/rock.png" alt="" class="hands__player">
+                <img src="img/rock.png" alt="" class="hands__computer">
+            </div>
+            <div class="options">
+                <button class="rock">rock</button>
+                <button class="paper">paper</button>
+                <button class="scissors">scissors</button>
+            </div>
+        </div>
+        
+    </section>
+    <!-- <div class="charForm">
+        <div class="charForm__left">
+            <form action="statForm">       
+                <label>
+                    <p>Str</p>
+                    <input class="charForm__input" type="number">
+                </label>
+
+                <label>
+                    <p>Sta</p>
+                    <input class="charForm__input" type="number">
+                </label>
+
+                <label>
+                    <p>Agl</p>
+                    <input class="charForm__input" type="number">
+                </label>
+
+                <label>
+                    <p>Wis</p>
+                    <input class="charForm__input" type="number">
+                </label>
+
+                <label>
+                    <p>Int</p>
+                    <input class="charForm__input" type="number">
+                </label>
+
+                <label>
+                    <p>Cha</p>
+                    <input class="charForm__input" type="number">
+                </label>
+                <button type="submit">Генерировать</button>
+            </form> 
+        </div>
+        <div class="charForm__right">
+            <table class="charForm__table">
+                <tr>
+                    <td class="charForm__table-td">15</td>
+                    <td class="charForm__table-td">14</td>
+                    <td class="charForm__table-td">13</td>
+                    <td class="charForm__table-td">12</td>
+                    <td class="charForm__table-td">10</td>
+                    <td class="charForm__table-td">8</td>
+                </tr>
+            </table>
+        </div>
+    </div> -->
+ 
+<!-- Test Vue -->
+
+    <!-- <div id="app">
+        {{ message }}
+        <br>
+        
+        <button  @click.prevent="countUp" @keyup.enter.exact="countUp" @keyup.down="countDown">+ \ - 1</button>
+        <button @click="countDown">-1</button>
+
+        <button @click.prevent="pushLi">Добавить элемент списка</button>
+        
+        <p>{{ count }}</p>
+
+        <br>
+
+        <ul>
+            <li v-for="item in items">
+                {{ item.message }}
+            </li>
+        </ul>
+
+        <br>
+        <label for="">Name
+            <input type="text" v-model="name">
+        </label>
+        <br>
+        <label for="">Surname
+            <input type="text" v-model="surname">
+        </label>
+        <br>
+        <button @click.prevent="submit">Show Result</button>
+
+        <div v-if="showResult">
+            <p>Вас зовут {{fullname}}</p>
+        </div>
+        <div v-else>
+            <small>Click the button Show</small>
+        </div>
+        
+    </div> -->
+    <!-- <div id="app">
+        <form class="form" action="#" @submit.prevent="putNumber">
+            <input class="form__input" type="text" placeholder="Ввести число" v-model="input">        
+        </form>
+        
+        <table v-if="showResult">
+            <tr v-for="item in numbers">
+                <td>{{item}}</td>
+            </tr>
+        </table>
+    </div> -->
+    
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script> -->  
+    <script src="game.js"></script> 
+</body>
+</html>
