@@ -36,19 +36,35 @@ const game = () => {
         const options = document.querySelectorAll('.options button');
         const playerHand = document.querySelector('.hands__player');
         const computerHand = document.querySelector('.hands__computer');
+        const hands = document.querySelectorAll('.hands img');
+
+        hands.forEach(hand => {
+            hand.addEventListener('animationend', function(){
+                this.style.animation = '';                
+            });
+        });
 
         const computerOptions = ['rock', 'paper', 'scissors'];  
         
         options.forEach(option => {
             option.addEventListener('click', function(){
+                hands.forEach(hand => {
+                    hand.src = './img/rock.png';
+                });
                 const computerChoice = computerOptions[rollNumber(computerOptions)];
-                console.log(computerChoice);
-                comparison(this.textContent, computerChoice);
+                
+                setTimeout(()=>{
+                    comparison(this.textContent, computerChoice);
+                    // Изменение картинки в соответствии с выбором
+                    let btnText = this.textContent;                
+                    playerHand.src = './img/' + btnText + '.png';
+                    computerHand.src = './img/' + computerChoice + '.png';
+                    } , 2000);
+                
+                
 
-                // Изменение картинки в соответствии с выбором
-                let btnText = this.textContent;                
-                playerHand.src = './img/' + btnText + '.png';
-                computerHand.src = './img/' + computerChoice + '.png';
+                playerHand.style.animation = 'shakePlayer 2s ease';
+                computerHand.style.animation = 'shakeComputer 2s ease'
             });
         });
     };
@@ -58,14 +74,14 @@ const game = () => {
         const winner = document.querySelector('.winner');
 
         const computerResult = () => {
-            winner.textContent = 'Computer win';
+            winner.textContent = 'Компьютер победил';
             computerScore++;
             updateScore();
             return;
         };
     
         const playerResult = () => {
-            winner.textContent = 'Player win';
+            winner.textContent = 'Игрок победил';
             playerScore++;
             updateScore();
             return;
