@@ -1,12 +1,15 @@
 const game = () => {
+    // Стартовые очки игроков
     let playerScore = 0;
     let computerScore = 0;
 
+    // Функция генерация числа от 0 до длины массива
     const rollNumber = (arr) => {
         let num = Math.floor(Math.random() * arr.length);
         return num;        
     };
 
+    // Отображение экрана с игрой
     const startGame = () => {
         const startBtn = document.querySelector('.intro button');
         const intro = document.querySelector('.intro');
@@ -19,6 +22,7 @@ const game = () => {
         });
     };
 
+    // Обновление очков
     const updateScore = () => {
         const pScore = document.querySelector('.score__player p');
         const cScore = document.querySelector('.score__computer p');
@@ -27,6 +31,7 @@ const game = () => {
         cScore.textContent = computerScore;
     };
 
+    // Расчет одного раунда
     const playMatch = () => {
         const options = document.querySelectorAll('.options button');
         const playerHand = document.querySelector('.hands__player');
@@ -40,65 +45,62 @@ const game = () => {
                 console.log(computerChoice);
                 comparison(this.textContent, computerChoice);
 
-                // Update images
+                // Изменение картинки в соответствии с выбором
                 let btnText = this.textContent;                
                 playerHand.src = './img/' + btnText + '.png';
                 computerHand.src = './img/' + computerChoice + '.png';
             });
         });
-
-        
     };
-
+    
+    // Сравнение значение и определения победителя в раунде
     const comparison = (playerChoice, computerChoice) => {
         const winner = document.querySelector('.winner');
+
+        const computerResult = () => {
+            winner.textContent = 'Computer win';
+            computerScore++;
+            updateScore();
+            return;
+        };
+    
+        const playerResult = () => {
+            winner.textContent = 'Player win';
+            playerScore++;
+            updateScore();
+            return;
+        };
+
+
         if (playerChoice === computerChoice) {
             winner.textContent = 'Ничья';
             return;
         }
 
-        // Check rock
+        // Проверка значения Rock
         if (playerChoice === 'rock') {
             if (computerChoice === 'paper') {
-                winner.textContent = 'Computer win';
-                computerScore++;
-                updateScore();
-                return;
+                computerResult(); 
             } else {
-                winner.textContent = 'Player win';
-                playerScore++;
-                updateScore();
-                return;
+                playerResult();
             }            
         }
 
-        // Check paper
+        // Проверка значения Paper
         if (playerChoice === 'paper') {
             if (computerChoice === 'scissors') {
-                winner.textContent = 'Computer win';
-                computerScore++;
-                updateScore();
-                return;
+                computerResult();
             } else {
-                winner.textContent = 'Player win';
-                playerScore++;
-                updateScore();
-                return;
+                playerResult();
             }            
         }
 
-        // Check scissors
+        // Проверка значения Scissors
         if (playerChoice === 'scissors') {
             if (computerChoice === 'rock') {
-                winner.textContent = 'Computer win';
-                computerScore++;
-                updateScore();
-                return;
+                computerResult();
             } else {
-                winner.textContent = 'Player win';
-                playerScore++;
-                updateScore();
-                return;
+                playerResult();
             }            
         }
 
